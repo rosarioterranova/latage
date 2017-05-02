@@ -1,57 +1,62 @@
 <script type="text/javascript">
 
+//formula encoder
 function convertFormula (equation){
-	var uri = "\\"+equation;
-	var res = encodeURI(uri);
+	var res = encodeURIComponent(equation);
 	return "https://chart.googleapis.com/chart?cht=tx&chl="+res;
 }
 
+//call API for show image
 function showImgFormula(url) {
-	if (url==""){
-		alert("Errore: nessuna formula inserita");
-	}
-	else{
-		urlFormula = convertFormula(url);
-	    var img = new Image();
-	    img.src = urlFormula;
-	    imgFormula.appendChild(img);
-	}
+
+	if(imgFormula.childNodes[0]!=null)
+		imgFormula.removeChild(imgFormula.childNodes[0]);
+	urlFormula = convertFormula(url);
+	var img = new Image();
+	img.src = urlFormula;
+	imgFormula.appendChild(img);
 }
 
+//show url to API
 function showTxtFormula(url) {
-	if (url==""){
-		alert("Errore: nessuna formula inserita");
-	}
-	else{
-		var span = document.getElementById('txtFormula');
-		urlFormula = convertFormula(url);
-		span.textContent = urlFormula;
-	    return urlFormula;
-	}
+	var span = document.getElementById('txtFormula');
+	urlFormula = convertFormula(url);
+	span.textContent = urlFormula;
+	return urlFormula;
 }
 
+//clear al field
+function clearFormula(){
+	var inp = document.getElementById('formulaInput');
+	var im = document.getElementById('imgFormula');
+	var te = document.getElementById('txtFormula');
+	inp.value="";
+	im.removeChild(im.childNodes[0]);
+	te.textContent = "";
+}
 </script>
 
-<b>Latage</b> v0.2
+	<b>Latage</b> v0.3
 <br>
 <br>
-Tool for convert Latex equations in image using <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a>.
+	A tool by <a href="https:\\rosarioterranova.github.io">Rosario Terranova</a> for convert in real-time Latex equations in image and url using <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage">Query string encoder</a>.
 
 <br>
 <br>
-<input id="formulaInput" value= "">
-<button onclick=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value)>convert formula</button>
+	<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
+	<!--<button onclick=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>convert formula</button>-->
+	<button onclick=clearFormula()>clear</button>
 <br>
 <br>
-<b>Image:</b>
+	<b>Image:</b>
 <br>
 <br>
-<div id="imgFormula"></div>
+	<div id="imgFormula"></div>
 <br>
-<b>Url:</b>
-<br>
-<br>
-<div id="txtFormula"></div>
+	<b>Url:</b>
 <br>
 <br>
-Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a>
+	<div id="txtFormula"></div>
+<br>
+<br>
+	Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a> | <a href="https://www.codecogs.com/latex/eqneditor.php">Codecogs's LaTeX Equation Editor Online</a>
