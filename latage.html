@@ -1,0 +1,32 @@
+<script type="text/javascript">
+
+function convertFormula (equation){
+	var uri = "\\"+equation;
+	var res = encodeURI(uri);
+	return "https://chart.googleapis.com/chart?cht=tx&chl="+res;
+}
+
+function showFormula(url) {
+	if (url==""){
+		alert("Errore: nessuna formula inserita");
+	}
+	else{
+		urlFormula = convertFormula(url);
+	    var img = new Image();
+	    img.src = urlFormula;
+	    imgFormula.appendChild(img);
+	}
+}
+
+</script>
+
+latage
+<br>
+v0.1
+<br>
+
+<input id="formulaInput" value= "">
+<button onclick=showFormula(formulaInput.value)>convert formula</button>
+<br>
+<br>
+<div id="imgFormula"></div>
