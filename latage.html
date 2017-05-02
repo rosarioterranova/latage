@@ -6,7 +6,7 @@ function convertFormula (equation){
 	return "https://chart.googleapis.com/chart?cht=tx&chl="+res;
 }
 
-function showFormula(url) {
+function showImgFormula(url) {
 	if (url==""){
 		alert("Errore: nessuna formula inserita");
 	}
@@ -18,15 +18,40 @@ function showFormula(url) {
 	}
 }
 
+function showTxtFormula(url) {
+	if (url==""){
+		alert("Errore: nessuna formula inserita");
+	}
+	else{
+		var span = document.getElementById('txtFormula');
+		urlFormula = convertFormula(url);
+		span.textContent = urlFormula;
+	    return urlFormula;
+	}
+}
+
 </script>
 
-latage
+<b>Latage</b> v0.2
 <br>
-v0.1
 <br>
+Tool for convert Latex equations in image using <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a>.
 
+<br>
+<br>
 <input id="formulaInput" value= "">
-<button onclick=showFormula(formulaInput.value)>convert formula</button>
+<button onclick=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value)>convert formula</button>
+<br>
+<br>
+<b>Image:</b>
 <br>
 <br>
 <div id="imgFormula"></div>
+<br>
+<b>Url:</b>
+<br>
+<br>
+<div id="txtFormula"></div>
+<br>
+<br>
+Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a>
