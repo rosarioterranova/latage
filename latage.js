@@ -37,3 +37,8 @@ function setFormulaByButton(formula){
 	document.getElementById('formulaInput').value = document.getElementById('formulaInput').value+formula;
 	document.getElementById('formulaInput').oninput();
 }
+
+//Copy to clipboard window
+function copyToClipboard(text) {
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+  }

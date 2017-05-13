@@ -8,10 +8,21 @@
 
 <br>
 <br>
+<hr>
 Math
+<br>
 <br>
 	<!-- MATH BUTTONS -->
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widetilde{ab}")';><img src="img/widetilde.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overline{ba}")';><img src="img/overline.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overbrace{ab}")';><img src="img/overbrace.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt{ab} ")';><img src="img/sqrt.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("x^{k}")';><img src="img/xpk.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lim_{a \\rightarrow b} ")';><img src="img/limit.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\begin{bmatrix}a & b \\\\c & d \\end{bmatrix} ")';><img src="img/matrix.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\int_a^b x ")';><img src="img/int.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sum_a^b x ")';><img src="img/sum.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x ")';><img src="img/prod.png"></button>
 <br>
 <br>
 	<!-- INPUT FIELD -->
@@ -21,20 +32,23 @@ Math
 	<button onclick=clearFormula()>clear</button>
 <br>
 <br>
-
+<hr>
 	<!-- GENERATED IMAGE AREA -->
 	<b>Image:</b>
 <br>
 <br>
 	<div id="imgFormula"></div>
 <br>
-
+<br>
 	<!-- GENERATED URL AREA -->
 	<b>Url:</b>
 <br>
 <br>
 	<div id="txtFormula"></div>
 <br>
+	<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">copy url</button>
 <br>
+<br>
+<hr>
 	<!-- FOOTER -->
 	Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a> | <a href="https://www.codecogs.com/latex/eqneditor.php">Codecogs's LaTeX Equation Editor Online</a>
