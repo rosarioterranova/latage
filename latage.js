@@ -29,13 +29,15 @@ function clearFormula(){
 	var te = document.getElementById('txtFormula');
 	inp.value="";
 	im.removeChild(im.childNodes[0]);
-	te.textContent = "";
+	//te.textContent = "";
+	setFocusToInput();
 }
 
 //On click button
 function setFormulaByButton(formula){
 	document.getElementById('formulaInput').value = document.getElementById('formulaInput').value+formula;
 	document.getElementById('formulaInput').oninput();
+	setFocusToInput();
 }
 
 //Copy to clipboard window
@@ -49,3 +51,7 @@ function calculate(equation) {
     var res = encodeURIComponent(equation);
     window.open(wolframUrl+res);
   }
+
+  function setFocusToInput(){
+    document.getElementById("formulaInput").focus();
+}

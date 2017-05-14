@@ -1,6 +1,6 @@
 	<!-- TITLE -->
 	<meta name="viewport" content="width=device-width">
-	<center><b>Latage</b> v0.5</center>
+	<center><b>Latage</b> v0.6</center>
 	<script src="latage.js"></script>
 <br>
 	<!-- DESCRIPTION -->
@@ -9,53 +9,77 @@
 <br>
 	<hr>
 <br>
-Math
+	<!-- TABS -->
+
+	<button title="Click to show/hide content" type="button" onclick="
+		if(document.getElementById('mathtab').style.display=='none') {
+			document.getElementById('mathtab').style.display='';
+			document.getElementById('greektab').style.display='none';
+		}else{
+			document.getElementById('mathtab').style.display='none';
+		} setFocusToInput();">Math
+	</button>
+
+	<button title="Click to show/hide content" type="button" onclick="
+		if(document.getElementById('greektab').style.display=='none') {
+			document.getElementById('greektab').style.display='';
+			document.getElementById('mathtab').style.display='none';
+		}else{
+			document.getElementById('greektab').style.display='none';
+		} setFocusToInput();">Greek
+	</button>
+
 <br>
 <br>
 	<!-- MATH BUTTONS -->
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("+")';><img src="img/plus.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("-")';><img src="img/minus.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("*")';><img src="img/multi.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\/")';><img src="img/div.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("x^{k}")';><img src="img/xpk.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("x_{k} ")';><img src="img/xuk.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{a}{b} ")';><img src="img/frac.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt{ab} ")';><img src="img/sqrt.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt[n]{ab} ")';><img src="img/sqrtn.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lim_{a \\rightarrow b} ")';><img src="img/limit.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\begin{bmatrix}a & b \\\\c & d \\end{bmatrix} ")';><img src="img/matrix.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("x =\\begin{cases}a & x = 0\\\\b & x > 0\\end{cases} ")';><img src="img/select.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\big\\{a\\big\\} ")';><img src="img/curly.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{\\partial^nf}{\\partial x^n} ")';><img src="img/partial.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overline{ba}")';><img src="img/overline.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underline{ab} ")';><img src="img/underline.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widehat{ab} ")';><img src="img/widehat.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widetilde{ab}")';><img src="img/widetilde.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overbrace{ab}")';><img src="img/overbrace.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underbrace{ab} ")';><img src="img/underbrace.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\int_a^b x ")';><img src="img/int.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sum_a^b x ")';><img src="img/sum.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcap_a^b x")';><img src="img/bigcap.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcup_a^b x")';><img src="img/bigcup.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigwedge_a^b x ")';><img src="img/bigwedge.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigvee_a^b x ")';><img src="img/bigvee.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x ")';><img src="img/prod.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\coprod_a^b x ")';><img src="img/coprod.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigotimes")';><img src="img/bigotimes.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigoplus ")';><img src="img/bigoplus.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\oint_a^b x")';><img src="img/oint.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigsqcup_a^b x ")';><img src="img/bigsqcup.png"></button>
-	
-<br>
+	<div id="mathtab" style="display:''"> 
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("+")';><img src="img/plus.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("-")';><img src="img/minus.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("*")';><img src="img/multi.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\/")';><img src="img/div.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("x^{k}")';><img src="img/xpk.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("x_{k}")';><img src="img/xuk.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{a}{b}")';><img src="img/frac.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt{ab}")';><img src="img/sqrt.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt[n]{ab}")';><img src="img/sqrtn.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lim_{a \\rightarrow b}")';><img src="img/limit.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\begin{bmatrix}a & b \\\\c & d \\end{bmatrix}")';><img src="img/matrix.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("x =\\begin{cases}a & x = 0\\\\b & x > 0\\end{cases}")';><img src="img/select.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\big\\{a\\big\\}")';><img src="img/curly.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{\\partial^nf}{\\partial x^n}")';><img src="img/partial.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overline{ba}")';><img src="img/overline.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underline{ab}")';><img src="img/underline.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widehat{ab}")';><img src="img/widehat.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widetilde{ab}")';><img src="img/widetilde.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overbrace{ab}")';><img src="img/overbrace.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underbrace{ab}")';><img src="img/underbrace.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\int_a^b x")';><img src="img/int.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sum_a^b x")';><img src="img/sum.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcap_a^b x")';><img src="img/bigcap.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcup_a^b x")';><img src="img/bigcup.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigwedge_a^b x")';><img src="img/bigwedge.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigvee_a^b x")';><img src="img/bigvee.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x")';><img src="img/prod.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\coprod_a^b x")';><img src="img/coprod.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigotimes")';><img src="img/bigotimes.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigoplus")';><img src="img/bigoplus.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\oint_a^b x")';><img src="img/oint.png"></button>
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigsqcup_a^b x")';><img src="img/bigsqcup.png"></button>
+	</div>
+
+	<!-- GREEK BUTTONS -->
+	<div id="greektab" style="display:none"> 
+		<button class="button" style="background-color:white" onclick='setFormulaByButton("+")';><img src="img/plus.png"></button>
+	</div>
 <br>
 	<!-- INPUT FIELD -->
 	<center>
+		Latex code (<a href="https://en.wikipedia.org/wiki/LaTeX">?</a>): 
 		<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
 	
 		<!-- CLEAR BUTTON -->
-		<button onclick=clearFormula()>clear</button>
+		<button onclick=clearFormula()>Clear</button>
 	</center>
-<br>
 <br>
 	<hr>
 <br>
@@ -70,5 +94,4 @@ Math
 	</center>
 <br>
 	<hr>
-	<!-- FOOTER -->
-	Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a> | <a href="https://www.codecogs.com/latex/eqneditor.php">Codecogs's LaTeX Equation Editor Online</a>
+<script> setFocusToInput(); </script>
