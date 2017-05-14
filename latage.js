@@ -16,9 +16,9 @@ function showImgFormula(url) {
 
 //show url to API
 function showTxtFormula(url) {
-	var span = document.getElementById('txtFormula');
+	//var span = document.getElementById('txtFormula');
 	urlFormula = convertFormula(url);
-	span.textContent = urlFormula;
+	//span.textContent = urlFormula;
 	return urlFormula;
 }
 
@@ -41,4 +41,11 @@ function setFormulaByButton(formula){
 //Copy to clipboard window
 function copyToClipboard(text) {
     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+  }
+
+ //Copy to clipboard window
+function calculate(equation) {
+    var wolframUrl = "https://www.wolframalpha.com/input/?i=";
+    var res = encodeURIComponent(equation);
+    window.open(wolframUrl+res);
   }

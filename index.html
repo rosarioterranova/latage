@@ -1,19 +1,22 @@
 	<!-- TITLE -->
 	<meta name="viewport" content="width=device-width">
-	<b>Latage</b> v0.4
+	<center><b>Latage</b> v0.5</center>
 	<script src="latage.js"></script>
 <br>
-<br>
 	<!-- DESCRIPTION -->
-	A tool by <a href="https:\\rosarioterranova.github.io">Rosario Terranova</a> for convert in real-time Latex equations in image and url using <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage">Query string encoder</a>.
-
+	A tool by <a href="https:\\rosarioterranova.github.io">Rosario Terranova</a> for real-time converting Latex equations to image and url using <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage">Query string encoder</a>. It can also calculate equations by transferring data to <a href="https://www.wolframalpha.com/">Wolfram Alha</a>.
 <br>
 <br>
-<hr>
+	<hr>
+<br>
 Math
 <br>
 <br>
 	<!-- MATH BUTTONS -->
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("+")';><img src="img/plus.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("-")';><img src="img/minus.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("*")';><img src="img/multi.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\/")';><img src="img/div.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("x^{k}")';><img src="img/xpk.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("x_{k} ")';><img src="img/xuk.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{a}{b} ")';><img src="img/frac.png"></button>
@@ -32,45 +35,40 @@ Math
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underbrace{ab} ")';><img src="img/underbrace.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\int_a^b x ")';><img src="img/int.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sum_a^b x ")';><img src="img/sum.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x ")';><img src="img/prod.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcap_a^b x")';><img src="img/bigcap.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigvee_a^b x ")';><img src="img/bigvee.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigotimes")';><img src="img/bigotimes.png"></button>
-	
-	
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\oint_a^b x")';><img src="img/oint.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigsqcup_a^b x ")';><img src="img/bigsqcup.png"></button>
-	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\coprod_a^b x ")';><img src="img/coprod.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcup_a^b x")';><img src="img/bigcup.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigwedge_a^b x ")';><img src="img/bigwedge.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigvee_a^b x ")';><img src="img/bigvee.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x ")';><img src="img/prod.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\coprod_a^b x ")';><img src="img/coprod.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigotimes")';><img src="img/bigotimes.png"></button>
 	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigoplus ")';><img src="img/bigoplus.png"></button>
-
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\oint_a^b x")';><img src="img/oint.png"></button>
+	<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigsqcup_a^b x ")';><img src="img/bigsqcup.png"></button>
+	
 <br>
 <br>
 	<!-- INPUT FIELD -->
-	<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
+	<center>
+		<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
 	
-	<!-- CLEAR BUTTON -->
-	<button onclick=clearFormula()>clear</button>
+		<!-- CLEAR BUTTON -->
+		<button onclick=clearFormula()>clear</button>
+	</center>
 <br>
 <br>
-<hr>
+	<hr>
+<br>
 	<!-- GENERATED IMAGE AREA -->
-	<b>Image:</b>
+	<center>
+		<div id="imgFormula"></div>
+	
 <br>
+	<!-- COPY BUTTON-->
+		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Get URL</button>
+		<button id="calculate" onclick="calculate(formulaInput.value)">Calculate</button>
+	</center>
 <br>
-	<div id="imgFormula"></div>
-<br>
-<br>
-	<!-- GENERATED URL AREA -->
-	<b>Url:</b>
-<br>
-<br>
-	<div id="txtFormula"></div>
-<br>
-	<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">copy url</button>
-<br>
-<br>
-<hr>
+	<hr>
 	<!-- FOOTER -->
 	Write latex online: <a href="http://www.sciweavers.org/free-online-latex-equation-editor">iTex2Img</a> | <a href="https://www.codecogs.com/latex/eqneditor.php">Codecogs's LaTeX Equation Editor Online</a>
