@@ -2,184 +2,28 @@
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <meta name="viewport" content="width=device-width"><title>Latage</title></head>
 <body style="margin:0;padding:40">
-	<big style="font-weight: bold;"><big>Latage</big></big> v0.7
+	<big style="font-weight: bold;"><big>Latage</big></big> v0.8
 	<br>
 	<script src="latage.js"></script>
 <br>
 <body style="margin:0;padding:40">
 	<!-- DESCRIPTION -->
-	A tool by <a href="https:\\rosarioterranova.github.io">Rosario Terranova</a> for real-time converting Latex equations to image and url using <a href="https://developers.google.com/chart/infographics/docs/formulas" target="_blank">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage" target="_blank">Query string encoder</a>. It can also calculate equations by transferring data to <a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a>. Latage is an open source software, you can download the source code <a href="https://github.com/rosarioterranova/latage" target="_blank">here</a>.
+	Tool creato da <a href="https:\\rosarioterranova.github.io">Rosario Terranova</a> per la conversione real-time di formule Latex in immagini e url usando le <a href="https://developers.google.com/chart/infographics/docs/formulas" target="_blank">Google chart API</a> e <a href="https://developers.google.com/chart/interactive/docs/querylanguage" target="_blank">Query string encoder</a>. Puo' anche calcolare il risultato trasferendo i dati al servizio <a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a>. Latage e' un software open source, puoi scaricare il codice sorgente <a href="https://github.com/rosarioterranova/latage" target="_blank">qui</a>.
 <br>
 <br>
 	<hr>
 <br>
-	<!-- TABS -->
-
-	<button title="Click to show/hide content" type="button" onclick="
-		if(document.getElementById('mathtab').style.display=='none') {
-			document.getElementById('mathtab').style.display='';
-			document.getElementById('greektab').style.display='none';
-			document.getElementById('relationstab').style.display='none';
-		}else{
-			document.getElementById('mathtab').style.display='none';
-		} setFocusToInput();">Math
-	</button>
-
-	<button title="Click to show/hide content" type="button" onclick="
-		if(document.getElementById('greektab').style.display=='none') {
-			document.getElementById('greektab').style.display='';
-			document.getElementById('mathtab').style.display='none';
-			document.getElementById('relationstab').style.display='none';
-		}else{
-			document.getElementById('greektab').style.display='none';
-		} setFocusToInput();">Greek
-	</button>
-
-		<button title="Click to show/hide content" type="button" onclick="
-		if(document.getElementById('relationstab').style.display=='none') {
-			document.getElementById('relationstab').style.display='';
-			document.getElementById('mathtab').style.display='none';
-			document.getElementById('greektab').style.display='none';
-		}else{
-			document.getElementById('relationstab').style.display='none';
-		} setFocusToInput();">Relations
-	</button>
-
-<br>
-<br>
-	<!-- MATH BUTTONS -->
-	<div id="mathtab" style="display:''"> 
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("+")';><img src="img/plus.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("-")';><img src="img/minus.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("*")';><img src="img/multi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\/")';><img src="img/div.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("x^{k}")';><img src="img/xpk.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("x_{k}")';><img src="img/xuk.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{a}{b}")';><img src="img/frac.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt{ab}")';><img src="img/sqrt.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqrt[n]{ab}")';><img src="img/sqrtn.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lim_{a \\rightarrow b}")';><img src="img/limit.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\begin{bmatrix}a & b \\\\c & d \\end{bmatrix}")';><img src="img/matrix.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("x =\\begin{cases}a & x = 0\\\\b & x > 0\\end{cases}")';><img src="img/select.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\big\\{a\\big\\}")';><img src="img/curly.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frac{\\partial^nf}{\\partial x^n}")';><img src="img/partial.png"></button>
-	<br>
-	<br>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overline{ba}")';><img src="img/overline.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underline{ab}")';><img src="img/underline.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widehat{ab}")';><img src="img/widehat.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\widetilde{ab}")';><img src="img/widetilde.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\overbrace{ab}")';><img src="img/overbrace.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\underbrace{ab}")';><img src="img/underbrace.png"></button>
-	<br>
-	<br>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\int_a^b x")';><img src="img/int.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sum_a^b x")';><img src="img/sum.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcap_a^b x")';><img src="img/bigcap.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigcup_a^b x")';><img src="img/bigcup.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigwedge_a^b x")';><img src="img/bigwedge.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigvee_a^b x")';><img src="img/bigvee.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prod_a^b x")';><img src="img/prod.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\coprod_a^b x")';><img src="img/coprod.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigotimes")';><img src="img/bigotimes.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigoplus")';><img src="img/bigoplus.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\oint_a^b x")';><img src="img/oint.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\bigsqcup_a^b x")';><img src="img/bigsqcup.png"></button>
-	</div>
-
-	<!-- GREEK BUTTONS -->
-	<div id="greektab" style="display:none"> 
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\alpha")';><img src="img/alpha.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\beta")';><img src="img/beta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\delta")';><img src="img/delta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\epsilon")';><img src="img/epsilon.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\varepsilon")';><img src="img/varepsilon.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\zeta")';><img src="img/zeta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\eta")';><img src="img/eta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\theta")';><img src="img/theta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\vartheta")';><img src="img/vartheta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\gamma")';><img src="img/gamma.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\kappa")';><img src="img/kappa.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lambda")';><img src="img/lambda.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\mu")';><img src="img/mu.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\nu")';><img src="img/nu.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\xi")';><img src="img/xi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("o")';><img src="img/o.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\pi")';><img src="img/pi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\varpi")';><img src="img/varpi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\rho")';><img src="img/rho.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\varrho")';><img src="img/varrho.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sigma")';><img src="img/sigma.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\varsigma")';><img src="img/varsigma.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\theta")';><img src="img/tau.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\tau")';><img src="img/vartheta.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\upsilon")';><img src="img/upsilon.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\phi")';><img src="img/phi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\varphi")';><img src="img/varphi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\chi")';><img src="img/chi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\psi")';><img src="img/psi.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\omega")';><img src="img/omega.png"></button>
-	<br>
-	<br>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Gamma")';><img src="img/gamma2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Delta")';><img src="img/delta2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Theta")';><img src="img/theta2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Lambda")';><img src="img/lambda2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Xi")';><img src="img/xi2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Sigma")';><img src="img/sigma2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Upsilon")';><img src="img/upsilon2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Phi")';><img src="img/phi2.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Psi")';><img src="img/psi2.png"></button>
-	</div>
-
-	<!-- RELATIONS BUTTONS -->
-	<div id="relationstab" style="display:none"> 
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\leq")';><img src="img/leq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\geq")';><img src="img/geq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\prec")';><img src="img/prec.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\succ")';><img src="img/succ.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\preceq")';><img src="img/preceq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\succeq")';><img src="img/succeq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\ll")';><img src="img/ll.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\gg")';><img src="img/gg.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\subset")';><img src="img/subset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\supset")';><img src="img/supset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\subseteq")';><img src="img/subseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\supseteq")';><img src="img/supseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsubset")';><img src="img/sqsubset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsupset")';><img src="img/sqsupset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsubseteq")';><img src="img/sqsubseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsupseteq")';><img src="img/sqsupseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\in")';><img src="img/in.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\ni")';><img src="img/ni.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\vdash")';><img src="img/vdash.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\dashv")';><img src="img/dashv.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\gt")';><img src="img/gt.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\lt")';><img src="img/lt.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\Join")';><img src="img/Join.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\smile")';><img src="img/smile.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\frown")';><img src="img/frown.png"></button>
-
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\gg")';><img src="img/gg.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\subset")';><img src="img/subset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\supset")';><img src="img/supset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\subseteq")';><img src="img/subseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\supseteq")';><img src="img/supseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsubset")';><img src="img/sqsubset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsupset")';><img src="img/sqsupset.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsubseteq")';><img src="img/sqsubseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\sqsupseteq")';><img src="img/sqsupseteq.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\in")';><img src="img/in.png"></button>
-		<button class="button" style="background-color:white" onclick='setFormulaByButton("\\ni")';><img src="img/ni.png"></button>
-	</div>
+<center>
+Per aiuto sulla scrittura di codice Latex, consulta <a href="https://it.wikipedia.org/wiki/Aiuto:Formule_matematiche_TeX"> questa</a> guida.
+</center>
 <br>
 	<!-- INPUT FIELD -->
 	<center>
-		Latex code (<a href="https://en.wikipedia.org/wiki/LaTeX">?</a>): 
+		Codice Latex (<a href="https://it.wikipedia.org/wiki/LaTeX">?</a>): 
 		<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
 	
 		<!-- CLEAR BUTTON -->
-		<button onclick=clearFormula()>Clear</button>
+		<button onclick=clearFormula()>Cancella</button>
 	</center>
 <br>
 	<hr>
@@ -190,8 +34,8 @@
 	
 <br>
 	<!-- COPY BUTTON-->
-		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Get URL</button>
-		<button id="calculate" onclick="calculate(formulaInput.value)">Calculate</button>
+		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Prendi URL</button>
+		<button id="calculate" onclick="calculate(formulaInput.value)">Calcola</button>
 	</center>
 <script> setFocusToInput(); </script>
 </body>
