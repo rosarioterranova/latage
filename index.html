@@ -13,17 +13,13 @@
 <br>
 	<hr>
 <br>
-<center>
-<a href="https://it.wikipedia.org/wiki/Aiuto:Formule_matematiche_TeX">Latex manual</a>.
-</center>
-<br>
 	<!-- INPUT FIELD -->
 	<center>
 		Latex code (<a href="https://it.wikipedia.org/wiki/LaTeX">?</a>): 
 		<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
 	
 		<!-- CLEAR BUTTON -->
-		<button onclick=clearFormula()>Cancella</button>
+		<button onclick=clearFormula()>Clear</button>
 	</center>
 <br>
 	<hr>
@@ -34,8 +30,8 @@
 	
 <br>
 	<!-- COPY BUTTON-->
-		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Prendi URL</button>
-		<button id="calculate" onclick="calculate(formulaInput.value)">Calcola</button>
+		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Get URL</button>
+		<button id="calculate" onclick="calculate(formulaInput.value)">Calc</button>
 	</center>
 <script> setFocusToInput(); </script>
 </body>
