@@ -1,38 +1,46 @@
-<html><head>
-<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
-<meta name="viewport" content="width=device-width"><title>Latage</title></head>
-<body style="margin:0;padding:40">
-	<big style="font-weight: bold;"><big>Latage</big></big> v0.8
-	<br>
-	<script src="latage.js"></script>
-<br>
-<body style="margin:0;padding:40">
-	<!-- DESCRIPTION -->
-	Tool made by <a href="https:\\rosarioterranova.com">Rosario Terranova</a> for real-time conversion of Latex formulas to images and url using <a href="https://developers.google.com/chart/infographics/docs/formulas" target="_blank">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage" target="_blank">Query string encoder</a>. You can also calc the equation with <a href="https://www.wolframalpha.com/" target="_blank">Wolfram Alpha</a>. Latage is open source, you can download the source code <a href="https://github.com/rosarioterranova/latage" target="_blank">from here</a>.
-<br>
-<br>
-	<hr>
-<br>
-	<!-- INPUT FIELD -->
-	<center>
-		Latex code (<a href="https://it.wikipedia.org/wiki/LaTeX">?</a>): 
-		<input id="formulaInput" value= "" style="width:50%" oninput=showImgFormula(formulaInput.value);showTxtFormula(formulaInput.value);>
-	
-		<!-- CLEAR BUTTON -->
-		<button onclick=clearFormula()>Clear</button>
-	</center>
-<br>
-	<hr>
-<br>
-	<!-- GENERATED IMAGE AREA -->
-	<center>
-		<div id="imgFormula"></div>
-	
-<br>
-	<!-- COPY BUTTON-->
-		<button id="copy" onclick="copyToClipboard(showTxtFormula(formulaInput.value))">Get URL</button>
-		<button id="calculate" onclick="calculate(formulaInput.value)">Calc</button>
-	</center>
-<script> setFocusToInput(); </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Latage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mb-2">
+
+        <div class="jumbotron">
+            <h1 class="display-4">Latage</h1>
+            <p class="lead">Tool made by <a href="https://rosarioterranova.com/">Rosario Terranova</a> for real-time conversion of Latex formulas to images and url.</p>
+            <hr class="my-4">
+            <p>Made using HTML, Bootstrap 4, Javascript, jQuery, <a href="https://developers.google.com/chart/infographics/docs/formulas">Google chart API</a> and <a href="https://developers.google.com/chart/interactive/docs/querylanguage"> Query string encoder.</a></p>
+            <p>You can also calc the equation with Wolfram Alpha. Latage is open source, you can download the source code and add new features.</p>
+            <a class="btn btn-primary btn bg-success" href="https://github.com/rosarioterranova/latage" role="button">Source Code</a>
+            <a class="btn btn-primary btn bg-info" href="https://davidhamann.de/2017/06/12/latex-cheat-sheet/" role="button">Cheat Sheet</a>
+        </div>
+
+        <div class="text-center my-5 ">
+            <span class="border border-primary p-2"><img id="imgFormula" src=""></span>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">&Sigma;</span>
+            </div>
+            <input type="text" class="form-control" id="formulaInput" placeholder="Formula" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-primary btn-lg" id="getUrlBtn" href="#" role="button">Get Url</a>
+            <a class="btn btn-primary btn-lg" id="calcFormulaBtn" href="#" role="button">Calc Result</a>
+        </div>
+    </div>
+
+    <script src="latage.js"></script>
 </body>
 </html>
